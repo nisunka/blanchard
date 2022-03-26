@@ -1,0 +1,373 @@
+.catalog {
+  padding-top: 80px;
+  padding-bottom: 40px;
+}
+
+.catalog__title {
+  margin-bottom: 16px;
+  margin-right: 40px;
+}
+
+.catalog__descr {
+  margin: 0;
+}
+
+.catalog__top {
+  margin-bottom: 39px;
+}
+
+.catalog__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.catalog__link {
+  text-align: left;
+}
+
+.catalog__tabs-content {
+  width: calc(750 / 1600 * 100%);
+}
+
+.catalog-tabs__person-title {
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.catalog-tabs__picture-box {
+  display: block;
+  margin-bottom: 25px;
+}
+
+.catalog__painter-image {
+  display: block;
+  width: 100%;
+}
+
+.catalog__painter-years {
+  display: inline-block;
+  margin-bottom: 3px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--middle-grey);
+}
+
+.catalog__accordion {
+  width: calc(800 / 1600 * 100%);
+}
+
+.catalog__accordion-item:first-child .catalog__accordion-heading {
+  border-top: 1px solid var(--light-middle-grey);
+}
+
+.catalog__accordion-heading {
+  position: relative;
+  margin-bottom: 0;
+  margin-top: -1px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid var(--light-middle-grey);
+  transition: border-color var(--short) ease;
+  padding: 34px 120px 34px 1px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color var(--short) ease, border-color var(--short) ease;
+}
+
+.catalog__accordion-content {
+  padding-top: 24px;
+  padding-bottom: 57px;
+}
+
+.catalog__accordion-item:first-child .catalog__accordion-heading:hover,
+.catalog__accordion-heading:hover,
+.catalog__accordion-item:first-child .catalog__accordion-heading.ui-accordion-header-active,
+.catalog__accordion-heading.ui-accordion-header-active {
+  border-color: var(--violet-middle);
+}
+
+.heading__text {
+  position: relative;
+}
+
+.heading__text-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.heading__text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% + 8px);
+  height: 100%;
+  transform: translate(-50%, -50%) scaleX(0);
+  background-color: var(--violet-middle);
+  transition: transform var(--short) ease;
+}
+
+.catalog__accordion-heading:focus .heading__text::before {
+  transform: translate(-50%, -50%) scaleX(1);
+}
+
+.heading__icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  transform: translateY(-50%) rotate(-180deg);
+  transition: background-color var(--short), .6s ease, transform var(--short), .6s ease;
+}
+
+.heading__icon-round {
+  transition: fill var(--middle) ease, stroke var(--middle) ease;
+}
+
+.catalog__accordion-heading:hover {
+  color: var(--violet-middle);
+}
+
+.catalog__accordion-heading:focus {
+  color: var(--white);
+  outline: none;
+}
+
+.catalog__accordion-heading:hover .heading__icon-round,
+.catalog__accordion-heading:focus .heading__icon-round {
+  fill: var(--violet-ultra-light);
+  stroke: var(--violet-ultra-light);
+}
+
+.catalog__accordion-heading:hover .heading__icon::before,
+.catalog__accordion-heading:hover .heading__icon::after,
+.catalog__accordion-heading:focus .heading__icon::before,
+.catalog__accordion-heading:focus .heading__icon::after {
+  background-color: var(--white);
+}
+
+.catalog__accordion-heading.ui-accordion-header-active .heading__icon {
+  transform: translateY(-50%) rotate(0);
+}
+
+.catalog__accordion-heading.ui-accordion-header-active .heading__icon-round {
+  fill: var(--violet-ultra-light);
+  stroke: var(--violet-middle);
+}
+
+.catalog__accordion-list {
+  padding-left: 0;
+  column-count: 3;
+  column-gap: 59px;
+  list-style: none;
+}
+
+.catalog__accordion-content {
+  border-bottom: 1px solid transparent;
+}
+
+.catalog__accordion-content.ui-accordion-content-active {
+   border-color: lightgray;
+}
+
+.empty-box {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 299px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  width: calc(574 / 800 * 100%);
+  background-size: 275px 189px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-image: url("../img/catalog/emty-box-image-1920.png");
+}
+
+.empty-box__span {
+  display: block;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 1px;
+  line-height: 32px;
+  color: var(--dark);
+}
+
+.empty-box__text {
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+
+.empty-box__link {
+  color: var(--violet-middle);
+}
+
+/* tabs */
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.is-active {
+  display: block;
+  animation-name: fadeIn;
+  animation-duration: .5s;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+@media (max-width: 1280px) {
+  .empty-box {
+    width: calc(421 / 437 * 100%);
+    padding-left: 206px;
+    background-size: 173px 114px;
+    background-image: url("../img/catalog/emty-box-image-1024.png");
+  }
+
+  .catalog__accordion {
+    width: calc(437 / 925 * 100%);
+  }
+
+  .catalog__accordion-list {
+    column-count: 2;
+    column-gap: 44px;
+  }
+
+  .catalog-tabs__picture-box {
+    margin-bottom: 27px;
+  }
+
+  .catalog-tabs__person-title {
+    margin-bottom: 3px;
+  }
+
+  .catalog__painter-years {
+    margin-bottom: 5px;
+  }
+
+  .catalog__accordion-content {
+    padding-bottom: 25px;
+  }
+
+}
+
+@media (max-width: 970px) {
+  .catalog {
+    padding-bottom: 20px;
+  }
+
+  .catalog__top {
+    margin-bottom: 21px;
+  }
+
+  .catalog__bottom {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .catalog__accordion {
+    margin-left: 0;
+    margin-bottom: 49px;
+  }
+
+  .catalog__tabs-content {
+    width: calc(670 / 668 * 100%);
+  }
+
+  .catalog__accordion {
+    width: calc(668 / 668 * 100%);
+  }
+
+  .catalog__accordion-list {
+    column-count: 3;
+    column-gap: 59px;
+  }
+
+  .catalog-tabs__picture-box {
+    margin-bottom: 34px;
+  }
+
+  .empty-box {
+    padding-left: 299px;
+    background-size: 275px 189px;
+    background-image: url("../img/catalog/emty-box-image-768.png");
+  }
+}
+
+@media (max-width: 420px) {
+  .catalog {
+    padding-top: 50px;
+    padding-bottom: 15px;
+  }
+
+  .catalog__descr {
+    display: none;
+  }
+
+  .catalog__title {
+    margin-bottom: -8px;
+  }
+
+  .catalog__accordion {
+    margin-bottom: 50px;
+  }
+
+  .catalog__accordion-heading {
+    padding: 12px 120px 12px 1px;
+  }
+
+  .catalog__accordion-content {
+    padding-top: 20px;
+    padding-bottom: 13px;
+  }
+
+  .heading__text-wrap {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .heading__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .catalog__accordion-list {
+    column-count: 1;
+  }
+
+  .empty-box {
+    padding-left: 115px;
+    background-size: 90px 130px;
+    background-image: url("../img/catalog/emty-box-image-320.png");
+  }
+
+  .empty-box__span {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .catalog-tabs__person-info {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .catalog-tabs__picture-box {
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  .catalog-tabs__person-title {
+    margin-bottom: 8px;
+  }
+
+  .catalog__painter-years {
+    margin-bottom: 2px;
+  }
+}

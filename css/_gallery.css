@@ -1,0 +1,300 @@
+.gallery {
+  padding-top: 80px;
+  padding-bottom: 61px;
+  color: var(--white);
+  background-color: var(--dark);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../img/gallery/gallery-bg-1920.jpg");
+}
+
+.gallery__content-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gallery__left {
+  display: flex;
+  flex-direction: column;
+  width: calc(400 / 1600 * 100%);
+}
+
+.gallery__checkbox {
+  margin-top: auto;
+}
+
+.gallery__checkbox-choices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.gallery__checkbox-wrap {
+  color: #ffffff;
+  cursor: pointer;
+  transition: color var(--short) ease;
+}
+
+.gallery__checkbox-wrap:hover {
+  color: var(--violet-light);
+}
+
+.gallery__checkbox-wrap:hover .gallery__visual-check {
+  border-color: var(--violet-light);
+}
+
+.gallery__visual-check {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border: 1px solid var(--white);
+  transition: border-color var(--short) ease;
+}
+
+.gallery__visual-check::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--violet-light);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity var(--short) ease;
+}
+
+.gallery__check-item:focus:not(:checked) ~ .gallery__check-item-content .gallery__visual-check,
+.gallery__check-item:checked ~ .gallery__check-item-content .gallery__visual-check {
+  border-color: var(--violet-light);
+}
+
+.gallery__check-item:focus:not(:checked) ~ .gallery__check-item-content .gallery__check-text,
+.gallery__check-item:checked ~ .gallery__check-item-content .gallery__check-text {
+  color: var(--violet-light);
+}
+
+.gallery__check-item:checked ~ .gallery__check-item-content .gallery__visual-check::before {
+  opacity: 1;
+}
+
+.gallery__slider {
+  width: calc(1150 / 1600 * 100%);
+  margin-right: 0;
+  padding-top: 18px;
+}
+
+.gallery__slides-container {
+  overflow: hidden;
+}
+
+.gallery__nav {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 27px;
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.gallery__pagination {
+  margin-right: 20px;
+  text-align: center;
+}
+
+.gallery__prev {
+  margin-right: 20px;
+}
+
+.gallery__slide {
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background-color: var(--background-helper);
+}
+
+.gallery__slide::before {
+  content: "";
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding-top: calc(100% - 6px);
+  border: 3px solid transparent;
+  box-sizing: border-box;
+  transition: background-color .3s ease, border-color .3s ease;
+}
+
+.gallery__slide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  opacity: 0;
+  background-color: var(--transparent-dark-5);
+  background-image: url("../img/loup.svg");
+  background-repeat: no-repeat;
+  background-size: 80px;
+  background-position: center top 46%;
+  background-clip: content-box;
+  transition: opacity .5s ease;
+}
+
+.gallery__slide:hover::after {
+  opacity: 1;
+}
+
+.gallery__slide:focus {
+  outline: none;
+}
+
+.gallery__slide:focus::before {
+  border-color: var(--violet-dark);
+}
+
+.gallery__slide:active::before {
+  border-color: var(--violet-ultra-light);
+  background-color: var(--transparent-rose);
+}
+
+.gallery__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__filter {
+  margin-bottom: 176px;
+}
+
+.gallery__filter-title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+/* Адаптивная высота слайда регулируется относительно его ширины с помощью padding-top в % для псевдоэлемента ::before */
+
+@media (max-width: 1280px) {
+  .gallery {
+    padding-bottom: 82px;
+    background-image: url("../img/gallery/gallery-bg-1024.jpg");
+  }
+
+  .gallery__slider {
+    width: calc(594 / 924 * 100%);
+  }
+
+  .gallery__slide::before {
+    padding-top: calc(113% - 6px);
+  }
+
+  .gallery__left {
+    width: calc(280 / 924 * 100%);
+  }
+
+  .gallery__filter {
+    margin-bottom: 106px;
+  }
+}
+
+@media (max-width: 970px) {
+  .gallery {
+    padding-bottom: 51px;
+    background-image: url("../img/gallery/gallery-bg-768.jpg");
+  }
+
+  .gallery__left,
+  .gallery__slider {
+    width: 100%;
+  }
+
+  .gallery__slider {
+    margin-bottom: 30px;
+    padding-top: 13px;
+  }
+
+  .gallery__nav {
+    margin-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .gallery__filter {
+    max-width: 280px;
+    margin-bottom: 40px;
+  }
+
+  .gallery__checkbox-content {
+    position: static;
+  }
+
+  .gallery__select {
+    max-width: 300px;
+  }
+
+  .gallery__slide::before {
+    padding-top: calc(330 / 317 * 100% - 6px);
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    background-image: url("../img/gallery/gallery-bg-320.jpg");
+  }
+
+  .gallery__filter {
+    max-width: 100%;
+    margin-bottom: 31px;
+  }
+
+  .gallery__filter-title {
+    margin-bottom: 5px;
+  }
+
+  .gallery__slides-container {
+    margin-bottom: 20px;
+  }
+
+  .gallery__slider {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 18px;
+    padding-top: 9px;
+  }
+
+  .gallery__nav {
+    align-self: center;
+    margin-bottom: 0;
+  }
+
+  .gallery__slide::before {
+    padding-top: calc(367 / 290 * 100% - 6px);
+  }
+
+  .gallery__prev,
+  .gallery__pagination {
+    margin-right: 15px;
+  }
+}

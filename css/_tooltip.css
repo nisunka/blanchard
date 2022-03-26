@@ -1,0 +1,49 @@
+.tooltip-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  padding: 5px;
+  border: 1px solid var(--violet-middle);
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--black);
+  background-color: var(--white);
+  transition: background-color var(--short), color var(--short);
+}
+
+.tooltip-btn:hover {
+  background-color: var(--violet-ultra-light);
+}
+
+.tooltip-btn:focus {
+  outline: none;
+  background-color: var(--violet-ultra-light);
+}
+
+.tooltip-btn:active {
+  color: var(--white);
+  background-color: var(--violet-middle);
+}
+
+.tippy-box[data-theme~='purple'] {
+  border-radius: 0;
+  text-align: center;
+  background-color: var(--violet-middle);
+  color: var(--white);
+}
+
+.tippy-box[data-theme~='purple'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: var(--violet-middle);
+}
+.tippy-box[data-theme~='purple'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: var(--violet-middle);
+}
+.tippy-box[data-theme~='purple'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: var(--violet-middle);
+}
+.tippy-box[data-theme~='purple'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: var(--violet-middle);
+}

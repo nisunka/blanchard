@@ -1,0 +1,7 @@
+[class*="ground-pane"] {
+  filter: grayscale(1);
+}
+
+.ymaps-2-1-79-copyrights-pane .ymaps-2-1-79-copyright {
+  display: none;
+}

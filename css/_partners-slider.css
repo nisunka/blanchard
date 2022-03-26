@@ -1,0 +1,82 @@
+.partners-slider {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.partners-slider__slider {
+  overflow: hidden;
+  width: calc(1450 / 1600 * 100%);
+}
+
+.partners-slider__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  padding: 32px 60px;
+  border: 1px solid var(--light-middle-grey);
+  box-sizing: border-box;
+  outline: none;
+}
+
+.partners-slider__image {
+  max-height: 100%;
+  filter: grayscale(1);
+  opacity: .4;
+  transition-property: filter, opacity;
+  transition-duration: var(--middle);
+}
+
+.partners-slider__slide:hover .partners-slider__image {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.partners-slider__slide:focus {
+  border-color: var(--violet-middle);
+}
+
+.partners-slider__slide:active {
+  border-color: var(--violet-middle);
+}
+
+.partners-slider__slide:active .partners-slider__image {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* на карточки нужно правильно расставить паддинги. н-р, на 1024 считаем: 384 - 283 = 100, 128 - 73 = 54, 768: 264 - 217 = 48, 106 - 73 = 34 320: 195 - 141 = 54, 65 - 37 = 28 */
+
+@media (max-width: 1280px) {
+  .partners-slider__slider {
+    width: calc(818 / 924 * 100%);
+  }
+
+  .partners-slider__slide {
+    padding: 27px 50px;
+    height: 128px;
+  }
+}
+
+@media (max-width: 970px) {
+  .partners-slider__slider {
+    width: calc( 562 / 668 * 100%);
+  }
+
+  .partners-slider__slide {
+    padding: 17px 24px;
+    height: 106px;
+  }
+}
+
+@media (max-width: 610px) {
+  .partners-slider__slider {
+    width: calc( 195 / 290 * 100%);
+  }
+
+  .partners-slider__slide {
+    height: 65px;
+    padding: 14px 27px;
+  }
+}
